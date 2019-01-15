@@ -1,0 +1,10 @@
+.task {
+  padding: 10px 20px;
+}
+.task-name {
+  margin-right: 20px;
+}
+.task-remove {
+  border: solid 1px #333;
+  padding: 5px 10px;
+}
