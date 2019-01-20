@@ -36,7 +36,8 @@ class App extends Component {
     const personIndex = this.state.persons.findIndex(person => person.id === id )
     // const person = Object.assign({}, this.state.persons[personIndex])
     const person = {...this.state.persons[personIndex]} // same as up there but better
-    person.name = event.target.value
+    // person.name = event.target.value
+    person.name = event.input.value // error test
 
     const persons = [...this.state.persons]
     persons[personIndex] = person
