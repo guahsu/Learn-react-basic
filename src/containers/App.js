@@ -67,13 +67,13 @@ class App extends Component {
 
   render() {
     console.log('App.js inside render')
-    let persons = null
-    if (this.state.showPersons) {
-      persons = <Persons
-        persons={this.state.persons}
-        clicked={this.deletePersonHandler}
-        changed={this.nameChangeHandler} />
-    }
+    // let persons = null
+    // if (this.state.showPersons) {
+    //   persons = <Persons
+    //     persons={this.state.persons}
+    //     clicked={this.deletePersonHandler}
+    //     changed={this.nameChangeHandler} />
+    // }
  
     return (
       <div className={classes.App}>
@@ -82,7 +82,13 @@ class App extends Component {
           clicked={this.togglePersonHandler}
           showPersons={this.state.showPersons}
           persons={this.state.persons} />
-        {persons}
+        { this.state.showPersons 
+          ? <Persons
+            persons={this.state.persons}
+            clicked={this.deletePersonHandler}
+            changed={this.nameChangeHandler} />
+          : null
+        }
       </div>
     );
   }

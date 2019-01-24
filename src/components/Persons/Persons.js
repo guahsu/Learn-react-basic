@@ -14,6 +14,11 @@ class Persons extends Component {
   componentDidMount () {
     console.log('Persons.js inside componentDidMount')
   }
+
+  componentWillUnmount () {
+    console.log('Persons.js inside componentWillUnmount')
+  }
+
   render () {
     console.log('Persons.js inside render')
     return this.props.persons.map((person, index) => {
