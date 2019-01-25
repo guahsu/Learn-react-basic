@@ -1,6 +1,5 @@
 import React from 'react'
 import classes from './Cockpit.module.css'
-import Aux from '../../hoc/Aux'
 
 const cockpit = (props) => {
 
@@ -20,7 +19,7 @@ const cockpit = (props) => {
   }
 
   return (
-    <Aux>
+    <>
       <h1>{ props.appTitle }</h1>
       <p className={assignedClasses.join(' ')}>This is really working !</p>
       <button
@@ -28,7 +27,7 @@ const cockpit = (props) => {
         onClick={props.clicked}>
         Switch Name
       </button>
-    </Aux>
+    </>
     // It's same way to do empty wrapping use <> & </>
     // <>
     //   <h1>{ props.appTitle }</h1>
