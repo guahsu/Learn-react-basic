@@ -27,6 +27,7 @@ const cockpit = (props) => {
         onClick={props.clicked}>
         Switch Name
       </button>
+      <button onClick={props.login}>Log in</button>
     </>
     // It's same way to do empty wrapping use <> & </>
     // <>
