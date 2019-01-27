@@ -81,19 +81,34 @@ class App extends PureComponent {
     this.setState({persons: persons})
   }
 
+  // Unsafe legacy lifecycle, look at console
+  shouldComponentUpdate (nextProps, nextState) {
+    console.log('[Update App.js] inside shouldComponentUpdate', nextProps, nextState)
+    return nextState.persons !== this.state.persons ||
+      nextState.showPersons !== this.state.showPersons
+  }
 
-  // shouldComponentUpdate (nextProps, nextState) {
-  //   console.log('[Update App.js] inside shouldComponentUpdate', nextProps, nextState)
-  //   return nextState.persons !== this.state.persons ||
-  //     nextState.showPersons !== this.state.showPersons
-  // }
+  // new LifeCycle hook
+  static getDerivedStateFromProps (nextProps, prevState) {
+    console.log('[Update App.js] inside getDerivedStateFromProps', nextProps, prevState)
+    return prevState
+  }
 
+  // Unsafe legacy lifecycle, look at console
   componentWillUpdate (nextProps, nextState) {
     console.log('[Update App.js] inside componentWillUpdate', nextProps, nextState)
   }
 
+  // new LifeCycle hook
+  getSnapshotBeforeUpdate () {
+    console.log('[Update App.js] inside getSnapshotBeforeUpdate')
+    console.log('in getSnapshotBeforeUpdate get body height =', document.body.offsetHeight)
+  }
+
+
   componentDidUpdate () {
     console.log('[Update App.js] inside componentDidUpdate')
+    console.log('in componentDidUpdate get body height =', document.body.offsetHeight)
   }
 
   loginHandler = () => {
